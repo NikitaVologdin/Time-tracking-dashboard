@@ -1,0 +1,347 @@
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/*
+  2. Remove default margin
+*/
+* {
+    margin: 0;
+}
+
+/*
+  Typographic tweaks!
+  3. Add accessible line-height
+  4. Improve text rendering
+*/
+body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+/*
+  5. Improve media defaults
+*/
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+/*
+  6. Remove built-in form typography styles
+*/
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+/*
+  7. Avoid text overflows
+*/
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    overflow-wrap: break-word;
+}
+
+/*
+  8. Create a root stacking context
+*/
+#root,
+#__next {
+    isolation: isolate;
+}
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: "Rubik", sans-serif;
+  font-optical-sizing: auto;
+  background-color: hsl(226, 43%, 10%);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+body main {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 81px 24px;
+}
+
+button {
+  cursor: pointer;
+}
+
+.app {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(7, auto);
+  row-gap: 25px;
+}
+
+.profile {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(5, 1fr);
+  row-gap: 30px;
+}
+
+.header {
+  background-color: hsl(246, 80%, 60%);
+  padding: 35px 39px 34px 32px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  border-radius: 15px;
+  z-index: 1;
+  grid-column: 1;
+  grid-row: 1/5;
+}
+.header__avatar img {
+  border: 3px solid white;
+  border-radius: 50px;
+}
+.header__user-name em {
+  font-style: normal;
+  font-size: 15px;
+  font-weight: normal;
+  color: hsl(236, 100%, 87%);
+  line-height: 100%;
+}
+.header__user-name h1 {
+  font-size: 24px;
+  font-weight: 300;
+  text-transform: capitalize;
+  color: white;
+  line-height: 100%;
+}
+
+.periods {
+  background-color: hsl(235, 46%, 20%);
+  border-radius: 15px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 0 20px;
+  grid-column: 1;
+  grid-row: 1/7;
+}
+.periods__button {
+  border: none;
+  background: none;
+  color: hsl(236, 100%, 87%);
+  text-transform: capitalize;
+  font-size: 18px;
+  line-height: 100%;
+  padding: 24px 0;
+}
+.periods__button_active {
+  color: white;
+}
+
+.card {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(5, 32px);
+  border-radius: 15px;
+}
+.card__background {
+  border-radius: 15px;
+  overflow: hidden;
+  z-index: 0;
+  grid-row: 1/6;
+  grid-column: 1;
+  z-index: 0;
+  position: relative;
+}
+.card__background img {
+  position: absolute;
+  right: 20px;
+  top: -10px;
+}
+.card__content {
+  background-color: hsl(235, 46%, 20%);
+  border-radius: 15px;
+  z-index: 1;
+  padding: 28px 24px;
+  grid-row: 2/7;
+  grid-column: 1;
+  z-index: 1;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto;
+  align-items: center;
+}
+.content__title, .content__result {
+  color: white;
+  line-height: 100%;
+}
+.content__last-period, .content__settings-button {
+  color: hsl(236, 100%, 87%);
+  justify-self: flex-end;
+  line-height: 100%;
+}
+.content__settings-button {
+  background: none;
+  border: none;
+  padding: 10px;
+  justify-self: flex-end;
+}
+.content__title {
+  font-size: 18px;
+  font-weight: 500;
+}
+.content__result {
+  font-size: 32px;
+  font-weight: 300;
+}
+.content__last-period {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.work__background {
+  background-color: #FF8B64;
+}
+
+.play__background {
+  background-color: hsl(195, 74%, 62%);
+}
+
+.study__background {
+  background-color: hsl(348, 100%, 68%);
+}
+
+.exercise__background {
+  background-color: hsl(145, 58%, 55%);
+}
+
+.social__background {
+  background-color: hsl(264, 64%, 52%);
+}
+
+.self-care__background {
+  background-color: hsl(43, 84%, 65%);
+}
+
+footer .attribution {
+  font-size: 11px;
+  text-align: center;
+  color: white;
+  padding: 7px;
+}
+footer .attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+@media screen and (min-width: 1440px) {
+  body {
+    padding: 0 165px;
+  }
+  .app {
+    grid-template-columns: repeat(4, 255px);
+    grid-template-rows: 1fr 1fr;
+    column-gap: 30px;
+    row-gap: 30px;
+    grid-template-areas: "profile work play study" "profile exercise social self-care";
+  }
+  .profile {
+    grid-area: profile;
+    row-gap: 63px;
+  }
+  .periods__button {
+    padding: 4px 0;
+  }
+  .periods__button:hover {
+    color: white;
+  }
+  .header {
+    padding: 37px 84px 80px 32px;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 0;
+  }
+  .header__avatar {
+    width: 78px;
+    height: 78px;
+  }
+  .header__avatar img {
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+  }
+  .header__user-name {
+    margin-top: 43px;
+  }
+  .header__user-name h1 {
+    margin-top: 3px;
+    font-size: 40px;
+    line-height: 100%;
+  }
+  .periods {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+    gap: 17px;
+    padding: 33px;
+  }
+  .card {
+    grid-template-rows: repeat(5, 1fr);
+  }
+  .work {
+    grid-area: work;
+  }
+  .play {
+    grid-area: play;
+  }
+  .study {
+    grid-area: study;
+  }
+  .exercise {
+    grid-area: exercise;
+  }
+  .social {
+    grid-area: social;
+  }
+  .self-care {
+    grid-area: self-care;
+  }
+  .content {
+    row-gap: none;
+    grid-template-rows: repeat(3, 1fr);
+    padding: 15px 30px;
+  }
+  .content__title {
+    font-size: 18px;
+  }
+  .content__result {
+    font-size: 56px;
+  }
+  .content__last-period {
+    grid-row: 3;
+    justify-self: flex-start;
+  }
+}
