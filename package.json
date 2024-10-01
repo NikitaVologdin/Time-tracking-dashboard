@@ -13,6 +13,7 @@
     "gulp": "^5.0.0",
     "gulp-concat": "^2.6.1",
     "gulp-plumber": "^1.2.1",
+    "gulp-px2rem-converter": "^1.6.0",
     "gulp-sass": "^5.1.0",
     "sass": "^1.78.0"
   },

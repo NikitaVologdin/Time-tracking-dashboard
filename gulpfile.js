@@ -4,6 +4,7 @@ const sass = require("gulp-sass")(require("sass"));
 const concat = require("gulp-concat");
 const plumber = require("gulp-plumber");
 const browserSync = require("browser-sync").create();
+const pxToRem = require("gulp-px2rem-converter");
 
 const transpileSassToCss = (done) => {
   return gulp
@@ -23,6 +24,14 @@ const concatCss = () => {
     .pipe(gulp.dest("css"));
 };
 
+const convertPixToRem = () => {
+  return gulp
+    .src(["css/style.css"])
+    .pipe(plumber())
+    .pipe(pxToRem())
+    .pipe(gulp.dest("css"));
+};
+
 function browser() {
   browserSync.init({
     server: {
@@ -32,7 +41,10 @@ function browser() {
 }
 
 const watchFiles = () => {
-  gulp.watch(["sass/**/*.sass"], gulp.series(transpileSassToCss, concatCss));
+  gulp.watch(
+    ["sass/**/*.sass"],
+    gulp.series(transpileSassToCss, concatCss, convertPixToRem)
+  );
   gulp.watch(["./*.html"]).on("change", browserSync.reload);
 };
 
